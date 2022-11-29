@@ -15,8 +15,7 @@ public class UserModel implements UserDetails, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "varbinary(36)")
-    private UUID Userid;
+    private Long userid;
     @Column(nullable = false, unique = true)
     private String usermame;
     @Column(nullable = false)
@@ -58,12 +57,12 @@ public class UserModel implements UserDetails, Serializable {
         return true;
     }
 
-    public UUID getUserid() {
-        return Userid;
+    public Long getUserid() {
+        return userid;
     }
 
-    public void setUserid(UUID userid) {
-        Userid = userid;
+    public void setUserid(Long userid) {
+        this.userid = userid;
     }
 
     public String getUsermame() {

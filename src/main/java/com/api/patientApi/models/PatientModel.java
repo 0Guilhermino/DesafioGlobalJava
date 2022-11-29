@@ -11,9 +11,8 @@ public class PatientModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "varbinary(36)")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Column(nullable = false, length = 130)
     private String patientName;
     @Column(nullable = false, length = 130)
@@ -23,11 +22,11 @@ public class PatientModel implements Serializable {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    public UUID getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

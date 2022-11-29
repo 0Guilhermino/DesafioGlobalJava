@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -44,7 +43,7 @@ public class PatientController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getOnePatient(@PathVariable(value = "id") UUID id){
+    public ResponseEntity<Object> getOnePatient(@PathVariable(value = "id") Integer id){
         Optional<PatientModel> patientModelOptional = patientService.findById(id);
         if(!patientModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Patient not Found");
@@ -53,7 +52,7 @@ public class PatientController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deletePatient(@PathVariable(value = "id") UUID id){
+    public ResponseEntity<Object> deletePatient(@PathVariable(value = "id") Integer id){
         Optional<PatientModel> patientModelOptional = patientService.findById(id);
         if(!patientModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Patient not Found.");
@@ -63,7 +62,7 @@ public class PatientController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updatePatient(@PathVariable(value = "id") UUID id, @RequestBody @Valid PatientDto patientDto){
+    public ResponseEntity<Object> updatePatient(@PathVariable(value = "id") Integer id, @RequestBody @Valid PatientDto patientDto){
         Optional<PatientModel> patientModelOptional = patientService.findById(id);
         if(!patientModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Patient not found.");
