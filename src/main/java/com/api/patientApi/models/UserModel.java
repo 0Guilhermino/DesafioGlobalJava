@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.UUID;
 
 @Entity
 @Table(name = "TB_USER")
@@ -17,7 +16,7 @@ public class UserModel implements UserDetails, Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userid;
     @Column(nullable = false, unique = true)
-    private String usermame;
+    private String username;
     @Column(nullable = false)
     private String password;
 
@@ -34,7 +33,7 @@ public class UserModel implements UserDetails, Serializable {
 
     @Override
     public String getUsername() {
-        return this.usermame;
+        return this.username;
     }
 
     @Override
@@ -65,12 +64,8 @@ public class UserModel implements UserDetails, Serializable {
         this.userid = userid;
     }
 
-    public String getUsermame() {
-        return usermame;
-    }
-
-    public void setUsermame(String usermame) {
-        this.usermame = usermame;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setPassword(String password) {
