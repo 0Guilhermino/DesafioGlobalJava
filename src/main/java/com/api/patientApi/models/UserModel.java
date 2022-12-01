@@ -13,8 +13,8 @@ public class UserModel implements UserDetails, Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long userid;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer userid;
     @Column(nullable = false, unique = true)
     private String username;
     @Column(nullable = false)
@@ -56,11 +56,11 @@ public class UserModel implements UserDetails, Serializable {
         return true;
     }
 
-    public Long getUserid() {
+    public Integer getUserid() {
         return userid;
     }
 
-    public void setUserid(Long userid) {
+    public void setUserid(Integer userid) {
         this.userid = userid;
     }
 
