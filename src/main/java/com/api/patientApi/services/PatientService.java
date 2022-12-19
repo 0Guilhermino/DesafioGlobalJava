@@ -32,7 +32,7 @@ public class PatientService {
     }
 
 
-    public Optional<PatientModel> findById(Integer id) {
+    public Optional<PatientModel> findById(UUID id) {
         return patientRepository.findById(id);
     }
 

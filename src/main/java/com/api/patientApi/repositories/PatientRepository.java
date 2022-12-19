@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface PatientRepository extends JpaRepository<PatientModel, Integer> {
+public interface PatientRepository extends JpaRepository<PatientModel, UUID> {
     boolean existsByHealthInsuranceCardId(String healthInsuranceCardId);
 }

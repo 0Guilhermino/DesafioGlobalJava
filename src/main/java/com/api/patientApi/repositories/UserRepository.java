@@ -1,14 +1,11 @@
 package com.api.patientApi.repositories;
 
-import com.api.patientApi.models.UserModel;
+import com.api.patientApi.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 import java.util.UUID;
 
-@Repository
-public interface UserRepository extends JpaRepository<UserModel, Integer> {
-
-    Optional<UserModel> findByUsername(String username);
+public interface UserRepository extends JpaRepository<User, UUID> {
+    Optional<User> findByLogin(String login);
 }
